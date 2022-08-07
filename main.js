@@ -33,52 +33,72 @@ function menu() {
 }
 let menuSeleccionado = menu();
 // SELECCIONE MENU
-while (true) {
+while (menuSeleccionado != 'ESC') {
   if (menuSeleccionado == 1) {
     //MENU DONAR PLATA
-    if (ingreseNumComedor() == 1) {
-      comedor1.nombreComedor();
-      plataDonada();
-    } else if (ingreseNumComedor() == 2) {
-      comedor2.nombreComedor();
-      plataDonada();
-    } else if (ingreseNumComedor() == 3) {
-      comedor3.nombreComedor();
-      plataDonada();
-    } else {
-      alert('Ingrese Numero del 1 al 3');
+    switch (ingreseNumComedor()) {
+      case 1:
+        comedor1.nombreComedor();
+        plataDonada();
+        break;
+      case 2:
+        comedor2.nombreComedor();
+        plataDonada();
+        break;
+      case 3:
+        comedor3.nombreComedor();
+        plataDonada();
+        break;
+      default:
+        alert('Ingrese Numero del 1 al 3');
+        break;
     }
-  } else if (menuSeleccionado == 2) {
-    //MENU CANTIDAD DE COMENSALES
+    break;
+  }
+  //MENU CANTIDAD DE COMENSALES
+  if (menuSeleccionado == 2) {
+    switch (ingreseNumComedor()) {
+      case 1:
+        comedor1.nombreComedor();
+        comedor1.cantidadComedor();
+        break;
+      case 2:
+        comedor2.nombreComedor();
+        comedor2.cantidadComedor();
+        break;
+      case 3:
+        comedor3.nombreComedor();
+        comedor3.cantidadComedor();
+        break;
+      default:
+        alert('Ingrese Numero del 1 al 3');
+        break;
+    }
+    break;
+  }
+  //MENU UBICACION
+  if (menuSeleccionado == 3) {
+    switch (ingreseNumComedor()) {
+      case 1:
+        comedor1.nombreComedor();
+        comedor1.ubicComedor();
+        break;
+      case 2:
+        comedor2.nombreComedor();
+        comedor2.ubicComedor();
+        break;
+      case 3:
+        comedor3.nombreComedor();
+        comedor3.ubicComedor();
+        break;
+      default:
+        alert('Ingrese Numero del 1 al 3');
+        break;
+    }
+    break;
+  }
 
-    if (ingreseNumComedor() == 1) {
-      comedor1.nombreComedor();
-      comedor1.cantidadComedor();
-    } else if (ingreseNumComedor() == 2) {
-      comedor2.nombreComedor();
-      comedor2.cantidadComedor();
-    } else if (ingreseNumComedor() == 3) {
-      comedor3.nombreComedor();
-      comedor3.cantidadComedor();
-    } else {
-      alert('Ingrese Numero del 1 al 3');
-    }
-  } else if (menuSeleccionado == 3) {
-    //MENU UBICACION
-
-    if (ingreseNumComedor() == 1) {
-      comedor1.nombreComedor();
-      comedor1.ubicComedor();
-    } else if (ingreseNumComedor() == 2) {
-      comedor2.nombreComedor();
-      comedor2.ubicComedor();
-    } else if (ingreseNumComedor() == 3) {
-      comedor3.nombreComedor();
-      comedor3.ubicComedor();
-    } else {
-      alert('Ingrese Numero del 1 al 3');
-    }
-  } else {
+  if (menuSeleccionado != 1 || menuSeleccionado != 2 || menuSeleccionado != 3) {
     alert('Menu incorrecto, vuelva a intentarlo');
   }
 }
