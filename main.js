@@ -31,71 +31,72 @@ function menu() {
   let seleccionMenu = prompt('Seleccione Menu 1:Donar plata 2:Cantidad Comensales 3:Ubicacion del Comedor');
   return parseInt(seleccionMenu);
 }
-let menuSeleccionado = menu();
+let menuSeleccionado;
 // SELECCIONE MENU
-while (menuSeleccionado != 'ESC') {
-  menu();
-  if (menu() == 1) {
-    //MENU DONAR PLATA
-    switch (ingreseNumComedor()) {
-      case 1:
-        comedor1.nombreComedor();
-        plataDonada();
-        break;
-      case 2:
-        comedor2.nombreComedor();
-        plataDonada();
-        break;
-      case 3:
-        comedor3.nombreComedor();
-        plataDonada();
-        break;
-      default:
-        alert('Ingrese Numero del 1 al 3');
-        break;
-    }
-  }
-  //MENU CANTIDAD DE COMENSALES
-  else if (menu() == 2) {
-    switch (ingreseNumComedor()) {
-      case 1:
-        comedor1.nombreComedor();
-        comedor1.cantidadComedor();
-        break;
-      case 2:
-        comedor2.nombreComedor();
-        comedor2.cantidadComedor();
-        break;
-      case 3:
-        comedor3.nombreComedor();
-        comedor3.cantidadComedor();
-        break;
-      default:
-        alert('Ingrese Numero del 1 al 3');
-        break;
-    }
-  }
-  //MENU UBICACION
-  else if (menu() == 3) {
-    switch (ingreseNumComedor()) {
-      case 1:
-        comedor1.nombreComedor();
-        comedor1.ubicComedor();
-        break;
-      case 2:
-        comedor2.nombreComedor();
-        comedor2.ubicComedor();
-        break;
-      case 3:
-        comedor3.nombreComedor();
-        comedor3.ubicComedor();
-        break;
-      default:
-        alert('Ingrese Numero del 1 al 3');
-        break;
-    }
-  } else {
-    alert('Menu incorrecto, vuelva a intentarlo');
-    menuSeleccionado = '';
+while ((menuSeleccionado = menu()) != 'ESC') {
+  switch (menuSeleccionado) {
+    case 1:
+      //MENU DONAR PLATA
+      switch (ingreseNumComedor()) {
+        case 1:
+          comedor1.nombreComedor();
+          plataDonada();
+          break;
+        case 2:
+          comedor2.nombreComedor();
+          plataDonada();
+          break;
+        case 3:
+          comedor3.nombreComedor();
+          plataDonada();
+          break;
+        default:
+          alert('Ingrese Numero del 1 al 3');
+          break;
+      }
+      break;
+    //MENU CANTIDAD DE COMENSALES
+    case 2:
+      switch (ingreseNumComedor()) {
+        case 1:
+          comedor1.nombreComedor();
+          comedor1.cantidadComedor();
+          break;
+        case 2:
+          comedor2.nombreComedor();
+          comedor2.cantidadComedor();
+          break;
+        case 3:
+          comedor3.nombreComedor();
+          comedor3.cantidadComedor();
+          break;
+        default:
+          alert('Ingrese Numero del 1 al 3');
+          break;
+      }
+      break;
+    //MENU UBICACION
+    case 3:
+      switch (ingreseNumComedor()) {
+        case 1:
+          comedor1.nombreComedor();
+          comedor1.ubicComedor();
+          break;
+        case 2:
+          comedor2.nombreComedor();
+          comedor2.ubicComedor();
+          break;
+        case 3:
+          comedor3.nombreComedor();
+          comedor3.ubicComedor();
+          break;
+        default:
+          alert('Ingrese Numero del 1 al 3');
+          break;
+      }
+      break;
+    default:
+      alert('Menu incorrecto, vuelva a intentarlo');
+      break;
   }
 }
