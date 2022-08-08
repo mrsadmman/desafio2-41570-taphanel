@@ -34,7 +34,8 @@ function menu() {
 let menuSeleccionado = menu();
 // SELECCIONE MENU
 while (menuSeleccionado != 'ESC') {
-  if (menuSeleccionado == 1) {
+  menu();
+  if (menu() == 1) {
     //MENU DONAR PLATA
     switch (ingreseNumComedor()) {
       case 1:
@@ -53,10 +54,9 @@ while (menuSeleccionado != 'ESC') {
         alert('Ingrese Numero del 1 al 3');
         break;
     }
-    break;
   }
   //MENU CANTIDAD DE COMENSALES
-  if (menuSeleccionado == 2) {
+  else if (menu() == 2) {
     switch (ingreseNumComedor()) {
       case 1:
         comedor1.nombreComedor();
@@ -74,10 +74,9 @@ while (menuSeleccionado != 'ESC') {
         alert('Ingrese Numero del 1 al 3');
         break;
     }
-    break;
   }
   //MENU UBICACION
-  if (menuSeleccionado == 3) {
+  else if (menu() == 3) {
     switch (ingreseNumComedor()) {
       case 1:
         comedor1.nombreComedor();
@@ -95,10 +94,8 @@ while (menuSeleccionado != 'ESC') {
         alert('Ingrese Numero del 1 al 3');
         break;
     }
-    break;
-  }
-
-  if (menuSeleccionado != 1 || menuSeleccionado != 2 || menuSeleccionado != 3) {
+  } else {
     alert('Menu incorrecto, vuelva a intentarlo');
+    menuSeleccionado = '';
   }
 }
