@@ -14,9 +14,6 @@ class Comedor {
     alert('La Ubiacion es ' + this.ubic);
   }
 }
-const comedor1 = new Comedor('El Gomero', 50, 'Barrancas de Belgrano');
-const comedor2 = new Comedor('Manitos', 30, 'Parque Centenario');
-const comedor3 = new Comedor('Doña Tota', 60, 'Villa Fiorito');
 
 function ingreseNumComedor() {
   let numIngresado = prompt('Ingrese Numero de Comedor');
@@ -28,10 +25,22 @@ function plataDonada() {
   return parseInt(plata);
 }
 function menu() {
-  let seleccionMenu = prompt('Seleccione Menu 1:Donar plata 2:Cantidad Comensales 3:Ubicacion del Comedor');
+  let seleccionMenu = prompt('Seleccione Menu\n 1:Donar plata\n 2:Cantidad Comensales\n 3:Ubicacion del Comedor\n 4:Registrar un nuevo comedor\n 5:Mostrar nombres Comedores');
   return parseInt(seleccionMenu);
 }
-let menuSeleccionado;
+const comedor1 = new Comedor('El Gomero', 50, 'Barrancas de Belgrano');
+const comedor2 = new Comedor('Manitos', 30, 'Parque Centenario');
+const comedor3 = new Comedor('Doña Tota', 60, 'Villa Fiorito');
+
+/* AGREGAR UN NUEVO COMEDOR POR ARRAY */
+/* const comedores = [comedor1, comedor2, comedor3];
+comedores.push(new Comedor(prompt('Ingrese nombre comedor'), prompt('Ingrese Cantidad de Comensales'), prompt('Ingrese Barrio')));
+console.log(comedores); */
+/* ---------------------------------- */
+
+let menuSeleccionado = '';
+const comedores = [comedor1, comedor2, comedor3];
+
 // SELECCIONE MENU
 while ((menuSeleccionado = menu()) != 'ESC') {
   switch (menuSeleccionado) {
@@ -94,6 +103,21 @@ while ((menuSeleccionado = menu()) != 'ESC') {
           alert('Ingrese Numero del 1 al 3');
           break;
       }
+      break;
+
+    //MENU REGISTRAR NUEVO COMEDOR
+    case 4:
+      comedores.push(new Comedor(prompt('Ingrese nombre comedor'), prompt('Ingrese Cantidad de Comensales'), prompt('Ingrese Barrio')));
+      alert('Ingresaste un nuevo comedor');
+      break;
+
+    //MENU MOSTRAR NOMBRE COMEDORES
+    case 5:
+      const nombresCom = comedores.map((el) => {
+        //LO CAMBIA POR OTRO
+        return el.nombre;
+      });
+      alert(nombresCom);
       break;
     default:
       alert('Menu incorrecto, vuelva a intentarlo');
